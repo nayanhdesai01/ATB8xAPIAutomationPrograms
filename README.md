@@ -3,4 +3,4 @@
 Rest Assured Basics
 Rest Assured Advance
 
-# How to run the Project?
+# How to Run the Project?
