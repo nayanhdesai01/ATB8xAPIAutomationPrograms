@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Harsh's PC/IdeaProjects/ATB8xAPIAutomationPrograms/src/test/java/com/thetestingacademy/RestAssuredBasics/APITest007_NonBDDStyleGET.java">
+        <classes>
+            <class name="com.thetestingacademy.RestAssuredBasics.GET.APITest007_NonBDDStyleGET">
+                <methods>
+                    <include name="test_GET_Request_Positive"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
