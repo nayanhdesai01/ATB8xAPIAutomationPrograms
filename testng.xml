@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/Harsh's PC/IdeaProjects/ATB8xAPIAutomationPrograms">
+        <classes>
+            <class name="com.thetestingacademy.RestAssuredBasics.GET.APITest005_GET_TestNG">
+                <methods>
+                    <include name="test_GET_Request"/>
+                </methods>
+            </class>
+            <class name="com.thetestingacademy.RestAssuredBasics.GET.APITest006_BDDStyleGET">
+                <methods>
+                    <include name="test_GET_Request_Positive"/>
+                    <include name="test_GET_Request_Negative"/>
+                </methods>
+            </class>
+            <class name="com.thetestingacademy.RestAssuredBasics.GET.APITest007_NonBDDStyleGET">
+                <methods>
+                    <include name="test_GET_Request_Positive"/>
+                    <include name="test_GET_Request_Negative"/>
+                </methods>
+            </class>
+            <class name="com.thetestingacademy.RestAssuredBasics.POST.APITest008_POST_BDDStyle">
+                <methods>
+                    <include name="test_Post_BDDStyle"/>
+                </methods>
+            </class>
+            <class name="com.thetestingacademy.RestAssuredBasics.POST.ApiTest009_NonBDDStylePOST">
+                <methods>
+                    <include name="test_Post_NonBDDStyle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

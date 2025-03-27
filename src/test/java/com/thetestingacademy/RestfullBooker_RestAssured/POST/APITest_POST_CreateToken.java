@@ -3,6 +3,8 @@ package com.thetestingacademy.RestfullBooker_RestAssured.POST;
 import io.qameta.allure.Description;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.Test;
 
@@ -20,12 +22,14 @@ public class APITest_POST_CreateToken {
                 "    \"username\" : \"admin\",\n" +
                 "    \"password\" : \"password123\"\n" +
                 "}";
-        RequestSpecification r = RestAssured.given();
-        r.baseUri("https://restful-booker.herokuapp.com");
-        r.basePath("/auth");
-        r.contentType(ContentType.JSON);
-        r.log().all().body(payload);
-        r.when().log().all().post();
-        r.then().log().all().statusCode(200);
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.baseUri("https://restful-booker.herokuapp.com");
+        requestSpecification.basePath("/auth");
+        requestSpecification.contentType(ContentType.JSON);
+        requestSpecification.body(payload).log().all();
+
+        Response response = requestSpecification.when().log().all().post();
+        ValidatableResponse validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(200);
     }
 }

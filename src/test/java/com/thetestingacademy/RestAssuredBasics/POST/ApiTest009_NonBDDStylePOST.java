@@ -14,12 +14,15 @@ public class ApiTest009_NonBDDStylePOST {
                 "    \"username\" : \"admin\",\n" +
                 "    \"password\" : \"password123\"\n" +
                 "}";
-        RequestSpecification r = RestAssured.given();
-                r.baseUri("https://restful-booker.herokuapp.com");
-                r.basePath("/auth");
-                r.contentType(ContentType.JSON);
-                r.log().all().body(payload);
-                r.when().log().all().post();
-                r.then().log().all().statusCode(200);
+        RequestSpecification requestSpecification = RestAssured.given();
+        requestSpecification.baseUri("https://restful-booker.herokuapp.com");
+        requestSpecification.basePath("/auth");
+        requestSpecification.contentType(ContentType.JSON);
+        requestSpecification.log().all().body(payload);
+
+        requestSpecification.when().log().all().post();
+        requestSpecification.then().log().all().statusCode(200);
+
+
     }
 }
