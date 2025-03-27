@@ -7,6 +7,9 @@ import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import  org.assertj.core.api.Assertions.*;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class APITest011_TestCaseIntegration {
     //Create a Token
@@ -21,7 +24,7 @@ public class APITest011_TestCaseIntegration {
     ValidatableResponse validatableResponse;
 
     String token;
-    String bookingID;
+    Integer bookingID;
 
     public String getToken(){
         String payload = "{\n" +
@@ -43,10 +46,12 @@ public class APITest011_TestCaseIntegration {
         //Extract the token
         token=response.jsonPath().getString("token");
         System.out.println(token);
+
+        assertThat(token).isNotNull().isAlphanumeric().isNotEmpty().isNotBlank();
         return token;
     }
 
-    public String getBookingID() {
+    public Integer getBookingID() {
 
         String payload_POST = "{\n" +
                 "    \"firstname\" : \"Disha\",\n" +
@@ -74,8 +79,8 @@ public class APITest011_TestCaseIntegration {
         validatableResponse.statusCode(200);
 
         //Extract the booking Id
-        bookingID = response.jsonPath().getString("bookingid");
-        System.out.println(bookingID);
+        bookingID = response.then().extract().path("bookingid");
+                System.out.println(bookingID);
         return bookingID;
     }
 
